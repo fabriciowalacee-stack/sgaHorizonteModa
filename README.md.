@@ -1,0 +1,21 @@
+
+# Sistema de Gestão de Atendimentos e Solicitações
+
+## Loja Horizonte Moda
+
+Projeto acadêmico desenvolvido para organizar o registro e o acompanhamento de solicitações de clientes recebidas pelo WhatsApp e Instagram.
+
+## Funcionalidades previstas
+- Login de funcionários
+- Cadastro de solicitações
+- Consulta de solicitações
+- Atualização do status dos atendimentos
+
+## Tecnologias
+- Java 21
+- Spring Boot 3.5.x
+- PostgreSQL
+- HTML, CSS e Thymeleaf
+
+## Situação do projeto
+MVP em desenvolvimento.
