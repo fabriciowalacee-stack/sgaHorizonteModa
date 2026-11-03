@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Solicitações</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Loja Horizonte Moda</h1>
+    <p>Consulta de Solicitações</p>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Solicitações Cadastradas</h2>
+
+        <p>
+            Consulte os atendimentos registrados
+            e acompanhe suas situações.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Cliente</th>
+                    <th>Canal</th>
+                    <th>Situação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="solicitacao : ${solicitacoes}">
+                    <td th:text="${solicitacao.id}"></td>
+                    <td th:text="${solicitacao.nomeCliente}"></td>
+                    <td th:text="${solicitacao.canal}"></td>
+
+                    <td>
+                        <select name="situacao"
+                                th:attr="form=${'form-' + solicitacao.id}">
+                            <option value="Pendente"
+                                    th:selected="${solicitacao.situacao == 'Pendente'}">
+                                Pendente
+                            </option>
+
+                            <option value="Em andamento"
+                                    th:selected="${solicitacao.situacao == 'Em andamento'}">
+                                Em andamento
+                            </option>
+
+                            <option value="Concluída"
+                                    th:selected="${solicitacao.situacao == 'Concluída'}">
+                                Concluída
+                            </option>
+                        </select>
+                    </td>
+
+                    <td>
+                        <form th:id="${'form-' + solicitacao.id}"
+                              action="/solicitacoes/atualizar"
+                              method="post">
+
+                            <input type="hidden"
+                                   name="id"
+                                   th:value="${solicitacao.id}">
+
+                            <button type="submit">Salvar</button>
+                        </form>
+
+                        
+<a th:href="@{/solicitacoes/detalhes(id=${solicitacao.id})}"
+   class="botao">
+    Ver detalhes
+</a>
+
+                    </td>
+                </tr>
+
+                <tr th:if="${#lists.isEmpty(solicitacoes)}">
+                    <td colspan="5">
+                        Nenhuma solicitação cadastrada.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><a href="/">Voltar ao início</a></p>
+    </section>
+</main>
+
+</body>
+</html>

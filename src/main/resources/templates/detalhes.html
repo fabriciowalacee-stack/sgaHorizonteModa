@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Solicitação</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Loja Horizonte Moda</h1>
+    <p>Detalhes da Solicitação</p>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Informações da Solicitação</h2>
+
+        <div class="detalhes">
+            <p><strong>Número:</strong>
+                <span th:text="${solicitacao.id}"></span>
+            </p>
+
+            <p><strong>Cliente:</strong>
+                <span th:text="${solicitacao.nomeCliente}"></span>
+            </p>
+
+            <p><strong>Canal:</strong>
+                <span th:text="${solicitacao.canal}"></span>
+            </p>
+
+            <p><strong>Descrição:</strong>
+                <span th:text="${solicitacao.descricao}"></span>
+            </p>
+
+            <p><strong>Prazo:</strong>
+                <span th:text="${#temporals.format(solicitacao.prazo, 'dd/MM/yyyy')}"></span>
+            </p>
+
+            <p><strong>Responsável:</strong>
+                <span th:text="${solicitacao.responsavel}"></span>
+            </p>
+
+            <p><strong>Situação:</strong>
+                <span th:text="${solicitacao.situacao}"></span>
+            </p>
+        </div>
+
+        <a href="/solicitacoes" class="botao">
+            Voltar às Solicitações
+        </a>
+    </section>
+</main>
+
+</body>
+</html>

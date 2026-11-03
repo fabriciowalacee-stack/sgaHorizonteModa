@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação Registrada</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Loja Horizonte Moda</h1>
+        <p>Sistema de Gestão de Atendimentos e Solicitações</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Solicitação registrada com sucesso!</h2>
+
+            <p>
+                Número:
+                <strong th:text="${solicitacao.id}"></strong>
+            </p>
+
+            <p>
+                Cliente:
+                <strong th:text="${solicitacao.nomeCliente}"></strong>
+            </p>
+
+            <p>
+                Situação:
+                <strong th:text="${solicitacao.situacao}"></strong>
+            </p>
+
+            <a href="/solicitacoes/nova" class="botao">
+                Nova Solicitação
+            </a>
+        </section>
+    </main>
+
+</body>
+</html>

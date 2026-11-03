@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Solicitação - Horizonte Moda</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Loja Horizonte Moda</h1>
+        <p>Cadastro de Solicitações</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Nova Solicitação</h2>
+
+            <form action="/solicitacoes/salvar" method="post">
+                <label for="cliente">Nome da cliente:</label>
+                <input type="text" id="cliente" name="cliente" required>
+
+                <label for="canal">Canal de atendimento:</label>
+                <select id="canal" name="canal" required>
+                    <option value="">Selecione</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="Instagram">Instagram</option>
+                </select>
+
+                <label for="descricao">Descrição da solicitação:</label>
+                <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+                <label for="prazo">Prazo de atendimento:</label>
+                <input type="date" id="prazo" name="prazo" required>
+
+                <label for="responsavel">Responsável:</label>
+                <input type="text" id="responsavel" name="responsavel" required>
+
+                <button type="submit" class="botao">
+                    Salvar Solicitação
+                </button>
+            </form>
+
+            <p><a href="/">Voltar ao início</a></p>
+        </section>
+    </main>
+
+</body>
+</html>
